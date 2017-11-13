@@ -27,7 +27,7 @@ class Account::OrdersController < ApplicationController
         # 前往支付页
         redirect_to pay_account_order_path(@order.number)
         # 发送下单通知
-        #OrderMailer.notify_order_placed(@order).deliver!
+        OrderMailer.notify_order_placed(@order).deliver!
       end
     end
   end

@@ -84,9 +84,9 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.action_mailer.default_url_options = { host: 'https://zuodao.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: 'localhost'}
 
-  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.delivery_method = :letter_opener end
   ActionMailer::Base.smtp_settings = {
     address: "smtpcloud.sohu.com",
     port: 25,
