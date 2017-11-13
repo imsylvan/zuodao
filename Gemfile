@@ -46,6 +46,7 @@ gem 'figaro'
 gem 'aasm'
 gem 'mina', require: false
 gem 'mina-puma', require: false
+gem 'letter_opener', group: :production
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -68,7 +69,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'letter_opener'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
