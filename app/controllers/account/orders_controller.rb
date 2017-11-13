@@ -27,7 +27,7 @@ class Account::OrdersController < ApplicationController
         # 前往支付页
         redirect_to pay_account_order_path(@order.number)
         # 发送下单通知
-        OrderMailer.notify_order_placed(@order).deliver!
+        #OrderMailer.notify_order_placed(@order).deliver!
       end
     end
   end
@@ -64,7 +64,7 @@ class Account::OrdersController < ApplicationController
       flash[:notice] = "订单支付成功！"
       redirect_to account_orders_path
       # 发送完成支付通知
-      OrderMailer.notify_order_paid(@order).deliver!
+      #OrderMailer.notify_order_paid(@order).deliver!
     else
       operation_error(:warning, "订单#{@order.number}已经完成支付，不能重复支付！")
     end
@@ -76,7 +76,7 @@ class Account::OrdersController < ApplicationController
       @order.apply_for_cancel!
       operation_error(:notice, "订单#{@order.number}已提交取消申请，请耐心等待审核")
       # 发送申请取消订单通知
-      OrderMailer.notify_apply_cancel(@order).deliver!
+      #OrderMailer.notify_apply_cancel(@order).deliver!
     elsif @order.cancelled?
       # 订单已经取消
       operation_error(:warning, "订单#{@order.number}已经取消，不能重复取消！")
@@ -99,9 +99,9 @@ class Account::OrdersController < ApplicationController
       @order.confirm_receipt!
       operation_error(:notice, "您的订单#{@order.number}成功确认收货！")
       # 发送确认收货通知
-      OrderMailer.notify_order_receipt(@order).deliver!
+      #OrderMailer.notify_order_receipt(@order).deliver!
       # 发送订单完成通知
-      OrderMailer.notify_order_finished(@order).deliver!
+      #OrderMailer.notify_order_finished(@order).deliver!
     elsif @order.cancelled?
       # 订单已经取消
       operation_error(:warning, "您的订单#{@order.number}已经取消！")
@@ -123,7 +123,7 @@ class Account::OrdersController < ApplicationController
       @order.apply_for_return!
       operation_error(:notice, "订单#{@order.number}的退货申请已经提交！")
       # 发送申请退货通知
-      OrderMailer.notify_apply_return(@order).deliver!
+      #OrderMailer.notify_apply_return(@order).deliver!
     elsif @order.cancelled?
       # 订单已经取消
       operation_error(:warning, "您的订单#{@order.number}已经取消！")
