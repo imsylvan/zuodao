@@ -22,7 +22,7 @@ class Admin::OrdersController <  Admin::AdminController
     @order.cancel!
     back admin_orders_path
     # 发送确认取消通知
-    OrderMailer.notify_order_cancelled(@order).deliver!
+    #OrderMailer.notify_order_cancelled(@order).deliver!
   end
 
   # 发货
@@ -30,7 +30,7 @@ class Admin::OrdersController <  Admin::AdminController
     @order.ship!
     back admin_orders_path
     # 发送出货通知
-    OrderMailer.notify_order_shipping(@order).deliver!
+    #OrderMailer.notify_order_shipping(@order).deliver!
   end
 
   # 确认退货
@@ -38,7 +38,7 @@ class Admin::OrdersController <  Admin::AdminController
     @order.confirm_goods_returned!
     back admin_orders_path
     # 发送确认退货通知
-    OrderMailer.notify_goods_returned(@order).deliver!
+    #OrderMailer.notify_goods_returned(@order).deliver!
   end
 
   private
