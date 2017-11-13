@@ -54,7 +54,6 @@ group :development, :test do
   gem 'sqlite3'
   gem 'annotate'
   gem 'dotenv-rails'
-  gem 'letter_opener'
   gem 'awesome_rails_console'
 end
 
