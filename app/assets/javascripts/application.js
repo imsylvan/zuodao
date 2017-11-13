@@ -20,7 +20,7 @@
 //= require material.min
 //= require nouislider.min
 //= require turbolinks
-//= require_tree .
+
 
 $(document).on('turbolinks:load', function() {
   // 菜单自动打开
